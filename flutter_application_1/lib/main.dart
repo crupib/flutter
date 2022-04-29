@@ -10,7 +10,8 @@ class GlobeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      appBar: AppBar(title: Text('Globo Fitness')),
-    ));
+            appBar: AppBar(title: Text('Globo Fitness')),
+            body:
+                Text('Commit to be fit, dare to be great with Globo Fitness')));
   }
 }
