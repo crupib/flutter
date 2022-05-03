@@ -9,6 +9,8 @@ class GlobeApp extends StatelessWidget {
   const GlobeApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: IntroScreen());
+    return MaterialApp(
+        theme: ThemeData(primarySwatch: Colors.deepOrange),
+        home: IntroScreen());
   }
 }
