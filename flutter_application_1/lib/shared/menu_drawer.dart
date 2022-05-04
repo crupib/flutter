@@ -1,0 +1,45 @@
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+import '../screens/bmi_screen.dart';
+import '../screens/intro_screens.dart';
+
+class MenuDrawer extends StatelessWidget {
+  const MenuDrawer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+        child: ListView(
+      children: buildMenuItems(context),
+    ));
+  }
+
+  List<Widget> buildMenuItems(BuildContext context) {
+    final List<String> menuTitles = ['Home', 'BMI Calc', 'Weather', 'Training'];
+    List<Widget> menuItems = [];
+    menuItems.add(const DrawerHeader(
+        decoration: BoxDecoration(color: Colors.deepOrange),
+        child: Text('Globo Fitness',
+            style: TextStyle(color: Colors.white, fontSize: 28))));
+    menuTitles.forEach((element) {
+      Widget screen = Container();
+      menuItems.add(ListTile(
+          title: Text(element, style: TextStyle(fontSize: 18)),
+          onTap: () {
+            switch (element) {
+              case 'Home':
+                screen = IntroScreen();
+                break;
+              case 'BMI Calc':
+                screen = BmiScreen();
+                break;
+              default:
+            }
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => screen));
+          }));
+    });
+    return menuItems;
+  }
+}
